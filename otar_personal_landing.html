@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Отар Аджиашвили — официальный сайт</title>
+  <meta name="description" content="Отар Аджиашвили — топ‑эксперт в e‑commerce, партнёрствах ритейла и Telegram Mini Apps. Масштабируемые экосистемы, измеримые результаты, премиальный UX." />
+  <meta property="og:title" content="Отар Аджиашвили — официальный сайт" />
+  <meta property="og:description" content="Эксперт высокого уровня: e‑commerce, партнёрства, Telegram Mini Apps, AI. Результаты и кейсы." />
+  <meta property="og:image" content="2025-08-27 16.49.21.jpg" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <style>
+    :root{
+      --bg1:#0b0f1a; --bg2:#0d1222; --glass:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.16); --txt:#e9edf5; --muted:#a9b2c6;
+      --accent1:#7cd3ff; --accent2:#7afcc9; --accent3:#b6a6ff; --accent4:#86a8ff;
+      --radius:28px; --shadow:0 10px 40px rgba(0,0,0,.45);
+      --header-h:64px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{ margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--txt); background: linear-gradient(135deg,var(--bg1),var(--bg2)); overflow-x:hidden; }
+
+    /* ===== динамический фон (CarPlay‑style) без привязки к курсору ===== */
+    #liquid-bg{position:fixed; inset:0; z-index:-2; pointer-events:none;}
+    .vignette{position:fixed; inset:0; z-index:-1; pointer-events:none; background: radial-gradient(1200px 600px at 10% -10%, rgba(16,32,58,.28) 0%, transparent 60%), radial-gradient(1200px 600px at 110% 10%, rgba(33,16,68,.24) 0%, transparent 60%), radial-gradient(100% 120% at 50% 110%, rgba(0,0,0,.32), transparent 60%); mix-blend-mode:soft-light; opacity:.35;}
+
+    /* ===== helpers ===== */
+    .glass{background:var(--glass); backdrop-filter:saturate(140%) blur(24px); -webkit-backdrop-filter:saturate(140%) blur(24px); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .container{max-width:1180px; margin:0 auto; padding:0 24px}
+
+    /* ===== nav / header ===== */
+    header{position:sticky; top:0; z-index:40}
+    .nav{position:relative; min-height:var(--header-h); height:auto; margin:10px auto; padding:10px 14px 12px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; align-content:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:center; min-width:0}
+    .brand .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(90deg,var(--accent1),var(--accent2))}
+    .brand span{font-weight:700; letter-spacing:.3px; font-size:clamp(16px,2.8vw,18px); line-height:1.1}
+
+    .nav-toggle{display:none; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--txt)}
+    .nav-toggle svg{width:18px; height:18px}
+
+    .links{display:flex; gap:12px 10px; flex-wrap:wrap; justify-content:flex-end; flex:1; min-width:0}
+    .links a{color:var(--txt); text-decoration:none; opacity:.9; padding:10px 12px; border-radius:12px; position:relative; transition:all .2s ease; display:inline-flex; align-items:center; gap:8px; font-size:clamp(14px,2.6vw,16px)}
+    .links a:hover{opacity:1; background:rgba(255,255,255,.06); box-shadow:0 0 0 1px var(--border) inset}
+
+    /* иконки */
+    .icon{width:18px; height:18px; color:#bcd8ff; filter:drop-shadow(0 2px 8px rgba(124,211,255,.12)); transition:color .25s ease, filter .25s ease}
+    .interactive:hover .icon, .card:hover .icon, .btn:hover .icon{ color:#7afcc9; filter:drop-shadow(0 6px 18px rgba(122,252,201,.25)); }
+
+    /* заголовки / секции с тонами */
+    section[data-tone]{position:relative}
+    section[data-tone]::before{content:""; position:absolute; left:22px; right:22px; top:-1px; height:2px; border-radius:999px; background:linear-gradient(90deg,var(--tone1),var(--tone2)); opacity:.8}
+    section[data-tone] h2{display:flex; align-items:center; gap:8px; background:linear-gradient(90deg,var(--tone1),var(--tone2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+
+    /* hero */
+    .hero{position:relative; padding:64px 0 28px}
+    .hero-wrap{display:grid; grid-template-columns: 1.1fr .9fr; gap:32px; align-items:center}
+    .portrait{padding:16px; border-radius:34px; background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.08)); border:1px solid var(--border); box-shadow:var(--shadow); position:relative; overflow:hidden}
+    .portrait:after{content:""; position:absolute; inset:-40%; background:conic-gradient(from 180deg, transparent 0 70%, rgba(255,255,255,.14) 70% 100%); filter:blur(40px)}
+    .portrait img{display:block; width:100%; height:auto; border-radius:24px; transform:translateZ(0)}
+
+    h1{font-size:clamp(28px,5vw,52px); line-height:1.05; margin:0 0 14px; background:linear-gradient(90deg,#ffffff, #cfe8ff 40%, #d6fff0 80%); -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+    .kicker{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.06); font-size:12px; letter-spacing:.4px; text-transform:uppercase; color:var(--muted)}
+    .lead{font-size:clamp(16px,2.2vw,20px); color:#dce6f6; opacity:.9; margin:12px 0 18px}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0}
+    .badge{padding:10px 14px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.06); font-size:14px; color:#e8f6ff; transition:transform .2s ease, box-shadow .2s ease}
+    .badge:hover{transform:translateY(-2px); box-shadow:0 0 0 1px var(--border) inset, 0 8px 24px rgba(0,0,0,.25)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 18px; border-radius:14px; text-decoration:none; font-weight:700; letter-spacing:.2px; transition:transform .15s ease, filter .15s ease, background .2s ease; font-size:clamp(14px,2.4vw,16px)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#06121a}
+    .btn.primary:hover{filter:brightness(1.08); transform:translateY(-2px)}
+    .btn.ghost{border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--txt)}
+    .btn.ghost:hover{background:rgba(255,255,255,.1)}
+
+    /* stats */
+    .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin:28px 0}
+    .stat{padding:18px; text-align:center; transition:transform .2s ease}
+    .stat:hover{transform:translateY(-4px)}
+    .stat h3{margin:0; font-size:24px}
+    .stat p{margin:6px 0 0; color:var(--muted); font-size:13px}
+
+    /* sections */
+    section{margin:48px 0; scroll-margin-top:calc(var(--header-h) + 14px)}
+    .section{padding:28px}
+    h2{margin:0 0 16px; font-size:clamp(20px,3.8vw,28px)}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+
+    .card{padding:20px; transition:.35s transform, box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.45)}
+    .card h3{display:flex; align-items:center; gap:8px; margin:0 0 8px; font-size:clamp(16px,3vw,20px)}
+    .muted{color:var(--muted)}
+
+    p, li{overflow-wrap:break-word; hyphens:auto}
+
+    .timeline{position:relative; padding-left:18px}
+    .timeline:before{content:""; position:absolute; left:6px; top:4px; bottom:4px; width:2px; background:linear-gradient(var(--accent1),var(--accent3))}
+    .t-item{position:relative; padding:10px 0 10px 18px}
+    .t-item:before{content:""; position:absolute; left:-4px; top:14px; width:10px; height:10px; border-radius:50%; background:linear-gradient(90deg,var(--accent1),var(--accent2)); box-shadow:0 0 0 3px rgba(124,211,255,.15)}
+    .t-item h4{margin:0 0 4px}
+    .t-item p{margin:0; color:var(--muted)}
+
+    footer{margin:40px 0 80px; padding:16px 0 calc(16px + env(safe-area-inset-bottom)); text-align:center; color:var(--muted)}
+    footer p{font-size:clamp(12px,3vw,14px); line-height:1.4; margin:0; white-space:normal}
+
+    /* tones */
+    section[data-tone="blue"]{--tone1:#7cd3ff; --tone2:#86a8ff}
+    section[data-tone="mint"]{--tone1:#7afcc9; --tone2:#7cd3ff}
+    section[data-tone="violet"]{--tone1:#b6a6ff; --tone2:#86a8ff}
+    section[data-tone="iris"]{--tone1:#c4d9ff; --tone2:#7cd3ff}
+
+    /* ====== mobile ====== */
+    @media (max-width:980px){
+      .hero{padding-top:52px}
+      .hero-wrap{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:1fr}
+      .nav{gap:8px}
+      .links{display:none}
+      .nav-toggle{display:inline-flex}
+      .nav.open .links{display:grid; grid-template-columns:1fr 1fr; gap:8px; position:absolute; top:calc(100% + 8px); left:8px; right:8px; padding:10px; border-radius:20px; background:var(--glass); backdrop-filter:saturate(140%) blur(20px); -webkit-backdrop-filter:saturate(140%) blur(20px); border:1px solid var(--border)}
+      .links a{padding:12px 14px}
+      .portrait{order:-1}
+    }
+    @media (max-width:560px){
+      .nav.open .links{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .badge{font-size:13px}
+    }
+  </style>
+</head>
+<body>
+  <!-- динамический фон: canvas + мягкая виньетка, без привязки к курсору -->
+  <canvas id="liquid-bg"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header>
+    <div class="container">
+      <nav class="nav glass" id="nav">
+        <div class="brand"><span class="dot"></span><span>Отар Аджиашвили</span></div>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>
+          Меню
+        </button>
+        <div class="links" id="navLinks">
+          <a class="interactive" href="#about"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M3 10h3v10H3zM10 6h3v14h-3zM17 3h3v17h-3z"/></svg>Обо мне</a>
+          <a class="interactive" href="#advantages"><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="13,2 3,14 11,14 9,22 19,10 11,10"/></svg>Почему я</a>
+          <a class="interactive" href="#benefits"><svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 12h4" stroke="currentColor" stroke-width="2"/></svg>Кому полезен</a>
+          <a class="interactive" href="#projects"><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>Проекты</a>
+          <a class="interactive" href="#impact"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>Результаты</a>
+          <a class="interactive" href="#method"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 15l-3 3" stroke="currentColor" stroke-width="2"/></svg>Подход</a>
+          <a class="interactive" href="#contact"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3l20 9-7 2-2 7-3-6-8-12z"/></svg>Связаться</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" data-tone="blue">
+    <div class="container hero-wrap">
+      <div>
+        <span class="kicker glass">Партнёрские экосистемы · E‑commerce · Telegram Mini Apps</span>
+        <h1>Топ‑эксперт, который превращает идеи в масштабируемые продукты</h1>
+        <p class="lead">Топ‑менеджер направления по поддержке банковских проектов в ТС «Пятёрочка». Проектирую и запускаю инициативы с банками, страховыми и платёжными системами, создаю Mini Apps в Telegram и технологичные e‑commerce‑бренды. Мой подход — скорость, unit‑экономика и измеримый результат.</p>
+        <div class="badges">
+          <span class="badge interactive"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M3 10h3v10H3zM10 6h3v14h-3zM17 3h3v17h-3z"/></svg>X5 Клуб · партнёрские инициативы</span>
+          <span class="badge interactive"><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="13,2 3,14 11,14 9,22 19,10 11,10"/></svg>Workshop'ы: Халва, Яндекс, НСПК</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary interactive" href="#contact"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3l20 9-7 2-2 7-3-6-8-12z"/></svg>Написать в Telegram</a>
+          <a class="btn ghost interactive" href="#impact">Смотреть результаты</a>
+        </div>
+        <div class="stats grid">
+          <div class="stat glass interactive"><h3>+1.32M</h3><p>выданных промокодов в одной кампании</p></div>
+          <div class="stat glass interactive"><h3>90 дней</h3><p>срок вывода Mini App от идеи до релиза</p></div>
+          <div class="stat glass interactive"><h3>300%+ ROI</h3><p>цель на линейке собственных SKU</p></div>
+          <div class="stat glass interactive"><h3>Кросс‑функции</h3><p>маркетинг, юр, финансы, регионы — единый контур</p></div>
+        </div>
+      </div>
+      <div class="portrait"><img src="2025-08-27 16.49.21.jpg" alt="Отар Аджиашвили — портрет" /></div>
+    </div>
+  </section>
+
+  <section id="about" class="container section glass" data-tone="mint">
+    <h2><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 5v7l5 3" stroke="currentColor" stroke-width="2" fill="none"/></svg> Обо мне</h2>
+    <p><strong>Отар Аджиашвили</strong> — эксперт высокого уровня в запуске партнёрских экосистем ритейла и продуктов на стыке e‑commerce и AI. В ТС «Пятёрочка» отвечаю за банковские и страховые инициативы: от стратегии и бизнес‑кейса до юридического оформления, маркетинга, регионального масштабирования и аналитики эффективности. Параллельно развиваю технологические продукты и Mini Apps, где важны скорость решений и аккуратная экономика.</p>
+  </section>
+
+  <section id="advantages" class="container section glass" data-tone="violet">
+    <h2><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg> Почему мне доверяют</h2>
+    <div class="grid">
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M3 10h3v10H3zM10 6h3v14h-3zM17 3h3v17h-3z"/></svg> Системно про деньги</h3><p class="muted">Каждая инициатива проходит через unit‑экономику и KPI. Я отвечаю за финансовую модель вместе с юридическим контуром и маркетинговым планом.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="13,2 3,14 11,14 9,22 19,10 11,10"/></svg> Скорость без хаоса</h3><p class="muted">Собираю кросс‑функции, выстраиваю SLA и артефакты: бриф, медиаплан, календарь, отчётность. Пилоты за недели, масштаб в квартал.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg> Премиальный продукт</h3><p class="muted">Дизайн и UX уровня Apple: «liquid glass», адаптивность, звук, анимации. Проекты выглядят «дорого» и повышают конверсию.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 12a5 5 0 0 1 5-5h5a5 5 0 0 1 0 10h-5"/><path fill="none" stroke="currentColor" stroke-width="2" d="M17 12a5 5 0 0 1-5 5H7a5 5 0 0 1 0-10h5"/></svg> Надёжные интеграции</h3><p class="muted">Опыт взаимодействия с банками, телекомом, платёжными системами. Понимание процессов партнёров, чтобы договорённости исполнялись.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Прозрачные метрики</h3><p class="muted">От сквозной аналитики до post‑mortem: знаю, как показать эффект и где улучшать.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v10H7l-3 3z"/></svg> Коммуникация</h3><p class="muted">Умею защищать инициативы, вести переговоры и говорить на языке акционеров и операционных команд.</p></div>
+    </div>
+  </section>
+
+  <section id="benefits" class="container section glass" data-tone="iris">
+    <h2><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9v6" stroke="currentColor" stroke-width="2"/><path d="M9 12h6" stroke="currentColor" stroke-width="2"/></svg> Кому и чем я полезен</h2>
+    <div class="grid">
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12h10" stroke="currentColor" stroke-width="2"/></svg> Банки и финтех</h3><p class="muted">Co‑brand‑акции в ритейле, рост активации карт, интеграция биллинга/антифрода, механики кэшбэка и промокодов, региональный rollout.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 5v8l-8 5-8-5V8z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8a4 4 0 1 1 0 8a4 4 0 0 1 0-8z" fill="none" stroke="currentColor" stroke-width="2"/></svg> Страховые</h3><p class="muted">Партнёрские продукты в торговой сети, up‑/cross‑sell, обучение персонала, юридическая стыковка условий.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h4l2-4 4 8 2-4h4" fill="none" stroke="currentColor" stroke-width="2"/></svg> Телеком/BigTech</h3><p class="muted">Вовлекающие кампании с подписками/сервисами, механики тестов/квестов, Mini Apps под задачи партнёра.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8v8H8z" fill="currentColor"/></svg> Маркетплейсы и бренды</h3><p class="muted">Стратегия SKU, ценообразование, проверка unit‑экономики, промо‑календарь, «Честный знак», логистика.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M3 7h18v10H6l-3 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg> Ритейл/Регионы</h3><p class="muted">Методички запуска, медиапланы, POS‑материалы, обучение, метрики эффективности, «после‑акционный» отчёт.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z" fill="none" stroke="currentColor" stroke-width="2"/></svg> Стартапы</h3><p class="muted">GTM, дизайн‑системы «liquid glass», быстрая проверка гипотез, Mini Apps, AI‑автоматизация (боты, Make.com).</p></div>
+    </div>
+    <div class="grid" style="margin-top:12px">
+      <div class="card glass"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16" stroke="currentColor" stroke-width="2"/><path d="M12 4v16" stroke="currentColor" stroke-width="2"/></svg> Задачи, которые закрываю</h3>
+        <ul class="muted">
+          <li>Стратегия партнёрства и ценностное предложение.</li>
+          <li>Бизнес‑кейс, финансовая модель, юридическая стыковка.</li>
+          <li>Разработка и запуск Telegram Mini Apps (кейс‑механики, биллинг, Stars).</li>
+          <li>Маркетинговая поддержка: медиапланы, креативы, региональный запуск.</li>
+          <li>Сквозная аналитика, отчёты, рекомендации по росту.</li>
+        </ul>
+      </div>
+      <div class="card glass"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12h10" stroke="currentColor" stroke-width="2"/></svg> Форматы работы</h3>
+        <ul class="muted">
+          <li>Аудит и перезапуск текущих инициатив.</li>
+          <li>Воркшопы/фасилитация с партнёрами.</li>
+          <li>Менторство продуктов и команд.</li>
+        </ul>
+      </div>
+      <div class="card glass"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg> Сроки</h3>
+        <p class="muted">Пилот — 2–6 недель, масштабирование — от 1 квартала, Mini App — от 4–12 недель в зависимости от интеграций.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container section glass" data-tone="blue">
+    <h2><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg> Избранные проекты</h2>
+    <div class="grid">
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 12a5 5 0 0 1 5-5h5a5 5 0 0 1 0 10h-5"/><path fill="none" stroke="currentColor" stroke-width="2" d="M17 12a5 5 0 0 1-5 5H7a5 5 0 0 1 0-10h5"/></svg> Партнёрства X5</h3><p class="muted">Запуск совместных активностей с банками/страховыми/платёжными системами. Воркшопы с ключевыми игроками рынка, координация юр‑ и фин‑блоков, контроль маркетинговой поддержки и регионального запуска.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg> StarCheckers (Mini App)</h3><p class="muted">Игра в русские шашки для Telegram Mini Apps: премиальный UX, звук, адаптив, интеграция Telegram Stars и партнёрских механик.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8v8H8z" fill="currentColor"/></svg> MentorX</h3><p class="muted">Платформа с AI‑генерацией курсов и голосовым тьютором. От каталога до итоговых проектов, «liquid glass» дизайн.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20" stroke="currentColor" stroke-width="2"/><path d="M12 2l4 8-4 2-4-2z" fill="currentColor"/></svg> BotFather24</h3><p class="muted">Разработка Telegram Mini Apps под задачи бизнеса: продажи, промо, биллинг, автоматизация.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2"/></svg> Bixton</h3><p class="muted">Собственный бренд электроники. Управление ассортиментом и маржинальностью, работа с маркетплейсами.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16" stroke="currentColor" stroke-width="2"/><path d="M12 4v16" stroke="currentColor" stroke-width="2"/></svg> AI‑инициативы</h3><p class="muted">Голосовые ассистенты, Make.com интеграции, автоматизация подготовки резюме митингов и аналитики.</p></div>
+    </div>
+  </section>
+
+  <section id="impact" class="container section glass" data-tone="mint">
+    <h2><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Результаты и факты</h2>
+    <div class="grid">
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M3 12h6l3-6 3 12 3-6h3" fill="none" stroke="currentColor" stroke-width="2"/></svg> 1 322 929 промокодов</h3><p class="muted">ИВИ — 725 604; Яндекс Плюс — 317 260; Соколов — 280 065. Масштабная кампания с заметным влиянием на лояльность.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 9h16" stroke="currentColor" stroke-width="2"/></svg> Эффективные запуски</h3><p class="muted">Чёткие SLA между маркетингом, юристами, финансами и регионами. Прозрачные артефакты: бизнес‑кейс, KPI, медиаплан, отчёт.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 12h12" stroke="currentColor" stroke-width="2"/></svg> Продуктовая дисциплина</h3><p class="muted">Фокус на ценностном предложении и unit‑экономике. Пилоты — «недели до первых метрик», масштаб — «месяцы до ROI».</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v6H3z" fill="none" stroke="currentColor" stroke-width="2"/></svg> Публичные выступления</h3><p class="muted">Фасилитация воркшопов и презентаций для партнёров: Халва, Яндекс, НСПК и др.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16v10H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2"/></svg> Командный контур</h3><p class="muted">Кросс‑функциональная работа с маркетингом, юристами, финансистами и регионами — единая операционная система.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="12,2 15,8 22,9 17,14 18,21 12,18 6,21 7,14 2,9 9,8" fill="currentColor"/></svg> UX класса «премиум»</h3><p class="muted">«Liquid glass», звук, анимации, адаптивность. Проекты выглядят дорого и работают быстрее.</p></div>
+    </div>
+
+    <div class="timeline" style="margin-top:18px">
+      <div class="t-item"><h4>2025 — Фокус на Telegram Mini Apps</h4><p>Игровые и утилитарные приложения. Подготовка монетизации через Telegram Stars и партнёрские интеграции.</p></div>
+      <div class="t-item"><h4>2024 — Банковские партнёрства в ТС «Пятёрочка»</h4><p>Координация кампаний с банками и платёжными системами, аналитика и защита инициатив.</p></div>
+      <div class="t-item"><h4>2019–2023 — Собственные e‑commerce‑бренды</h4><p>Стратегии маркетплейсов, «Честный знак», логистика, ценообразование и управление маржой.</p></div>
+    </div>
+  </section>
+
+  <section id="method" class="container section glass" data-tone="violet">
+    <h2><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12h10" stroke="currentColor" stroke-width="2"/></svg> Мой подход</h2>
+    <div class="grid">
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2"/></svg> 1) Ценность</h3><p class="muted">Чёткое ценностное предложение для клиента и партнёра. Никаких «фич ради фич».</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><polygon fill="currentColor" points="13,2 3,14 11,14 9,22 19,10 11,10"/></svg> 2) Скорость</h3><p class="muted">Пилоты запускаются в считанные недели. Решения принимаются быстро, но обоснованно.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2"/></svg> 3) Экономика</h3><p class="muted">Unit‑экономика, бюджеты, KPI, контроль рисков. Все знают, сколько и за что платим.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg> 4) Масштаб</h3><p class="muted">Региональные гайды, пресс‑макеты, скрипты и шаблоны — чтобы расти без потери качества.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 10h6" stroke="currentColor" stroke-width="2"/></svg> 5) Культура</h3><p class="muted">Прозрачность, ответственность, уважение к срокам. Результат — это репутация.</p></div>
+      <div class="card glass interactive"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="12,2 15,8 22,9 17,14 18,21 12,18 6,21 7,14 2,9 9,8" fill="currentColor"/></svg> 6) Премиальный UX</h3><p class="muted">Apple‑подобный «liquid glass», минимализм, звук, плавные анимации — чтобы продукт хотелось рекомендовать.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="container section glass" data-tone="blue">
+    <h2><svg class="icon" viewBox="0 0 24 24"><path d="M2 3l20 9-7 2-2 7-3-6-8-12z" fill="currentColor"/></svg> Связаться</h2>
+    <div class="grid">
+      <div class="card glass interactive">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M2 3l20 9-7 2-2 7-3-6-8-12z" fill="currentColor"/></svg> Telegram</h3>
+        <p class="muted">Лучший способ связи — написать в Telegram. Кратко опишите задачу и желаемый результат.</p>
+        <p><a class="btn primary interactive" href="https://t.me/otar989" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M2 3l20 9-7 2-2 7-3-6-8-12z" fill="currentColor"/></svg> Написать @otar989</a></p>
+      </div>
+      <div class="card glass"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="12,2 15,8 22,9 17,14 18,21 12,18 6,21 7,14 2,9 9,8" fill="currentColor"/></svg> Цитата</h3><p class="muted">«Партнёрства — это продукт. У него есть ценность, метрики и масштаб. Так они работают и приносят деньги».</p></div>
+      <div class="card glass"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg> Факт</h3><p class="muted">Меня зовут, когда нужна скорость и качество одновременно — без компромиссов по UX и экономике.</p></div>
+    </div>
+  </section>
+
+  <footer class="container">
+    <p>© 2025 Отар Аджиашвили. Официальный сайт.</p>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Отар Аджиашвили",
+    "jobTitle": "Топ‑менеджер направления по поддержке банковских проектов",
+    "affiliation": {"@type":"Organization","name":"ТС Пятёрочка"},
+    "image": "2025-08-27 16.49.21.jpg",
+    "url": "https://otar.site/",
+    "worksFor": {"@type":"Organization","name":"X5 Group"}
+  }
+  </script>
+
+  <script>
+    // ===== Liquid background (no cursor tracking) =====
+    (function(){
+      const canvas = document.getElementById('liquid-bg');
+      const ctx = canvas.getContext('2d');
+      let dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      let W = 0, H = 0; let t = 0; let running = true;
+      const mediaReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(mediaReduce.matches) running = false;
+
+      const palette = [ 'rgba(124,211,255,0.26)', 'rgba(122,252,201,0.22)', 'rgba(182,166,255,0.20)', 'rgba(134,168,255,0.18)' ];
+      const blobs = []; const N = 7;
+
+      function resize(){ W = Math.max(1, window.innerWidth); H = Math.max(1, window.innerHeight); canvas.width = Math.floor(W*dpr); canvas.height = Math.floor(H*dpr); canvas.style.width=W+'px'; canvas.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); }
+      function init(){ blobs.length=0; for(let i=0;i<N;i++){ const r = Math.random()*160+220; blobs.push({ x:Math.random()*W, y:Math.random()*H, r, vx:(Math.random()*2-1)*0.12, vy:(Math.random()*2-1)*0.12, c:palette[i%palette.length], phase: Math.random()*Math.PI*2 }); } }
+
+      function render(){ if(!running) return; ctx.clearRect(0,0,W,H); const bg=ctx.createLinearGradient(0,0,W,H); bg.addColorStop(0,'#0b0f1a'); bg.addColorStop(1,'#0d1222'); ctx.fillStyle=bg; ctx.fillRect(0,0,W,H); ctx.globalCompositeOperation='screen'; ctx.globalAlpha=0.55; t+=0.005; for(let i=0;i<blobs.length;i++){ const b=blobs[i]; b.x += b.vx + Math.sin(t + b.phase + i)*0.2; b.y += b.vy + Math.cos(t*1.1 + b.phase + i)*0.2; if(b.x < -200) b.x=W+200; if(b.x>W+200) b.x=-200; if(b.y<-200) b.y=H+200; if(b.y>H+200) b.y=-200; const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r); g.addColorStop(0,b.c); g.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=g; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill(); }
+        ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over'; requestAnimationFrame(render); }
+
+      window.addEventListener('resize', resize);
+      document.addEventListener('visibilitychange', ()=>{ running = !document.hidden && !mediaReduce.matches; if(running) render(); });
+      resize(); init(); if(running) render();
+    })();
+
+    // ===== Mobile nav toggle =====
+    (function(){
+      const nav = document.getElementById('nav');
+      const btn = document.getElementById('navToggle');
+      btn.addEventListener('click', ()=>{
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // закрытие меню по ссылке
+      document.getElementById('navLinks').addEventListener('click', (e)=>{
+        if(e.target.closest('a')){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      });
+    })();
+  </script>
+</body>
+</html>
