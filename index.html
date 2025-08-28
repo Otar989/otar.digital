@@ -103,6 +103,12 @@
     footer{margin:40px 0 80px; padding:16px 0 calc(16px + env(safe-area-inset-bottom)); text-align:center; color:var(--muted)}
     footer p{font-size:clamp(12px,3vw,14px); line-height:1.4; margin:0; white-space:normal}
 
+    /* back to top button */
+    .scroll-top{position:fixed; bottom:20px; left:20px; width:46px; height:46px; border-radius:50%; border:1px solid var(--border); background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; color:var(--txt); opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease; cursor:pointer; z-index:50}
+    .scroll-top svg{width:20px; height:20px}
+    .scroll-top.show{opacity:.7; visibility:visible}
+    .scroll-top:hover{opacity:1}
+
     /* tones */
     section[data-tone="blue"]{--tone1:#7cd3ff; --tone2:#86a8ff}
     section[data-tone="mint"]{--tone1:#7afcc9; --tone2:#7cd3ff}
@@ -289,6 +295,10 @@
     <p>© 2025 Отар Аджиашвили. Официальный сайт.</p>
   </footer>
 
+  <button id="scrollTop" class="scroll-top" aria-label="Наверх">
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12 5l-7 7h4v7h6v-7h4z" fill="currentColor"/></svg>
+  </button>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -338,6 +348,16 @@
       document.getElementById('navLinks').addEventListener('click', (e)=>{
         if(e.target.closest('a')){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
       });
+    })();
+
+    // ===== Back to top button =====
+    (function(){
+      const btn = document.getElementById('scrollTop');
+      if(!btn) return;
+      const toggle = ()=>{ btn.classList[window.scrollY>200?'add':'remove']('show'); };
+      window.addEventListener('scroll', toggle);
+      btn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+      toggle();
     })();
   </script>
   
